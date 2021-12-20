@@ -10,6 +10,13 @@ open Itertools
 
 set_option trace.compiler.ir.result true
 
+def foo :=
+  generate 0 (· + 1)
+  |> until (· == 10)
+  |> filter (· % 2 == 0)
+  |> map (· * 2)
+  |> array
+
 def test1 :=
   array <| filter (fun i => i % 2 == 0) [0:5]
 
@@ -24,21 +31,14 @@ def test4 :=
   |> until (· == 10)
   |> array
 
-def test5 :=
-  generate 0 (· + 1)
-  |> until (· == 10)
-  |> filter (· % 2 == 0)
-  |> map Nat.succ
-  |> array
-
 def testInf :=
   generate 0 (· + 1)
   |> array
 
 set_option trace.compiler.ir.result false
 
+#eval foo
 #eval test1
 #eval test2
 #eval test3
 #eval test4
-#eval test5
