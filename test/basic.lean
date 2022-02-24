@@ -17,6 +17,12 @@ def foo :=
   |> map (· * 2)
   |> array
 
+def foo' :=
+  range 10
+  |> filter (· % 2 == 0)
+  |> map (· * 2)
+  |> array
+
 def test1 :=
   array <| filter (fun i => i % 2 == 0) [0:5]
 
@@ -38,6 +44,7 @@ def testInf :=
 set_option trace.compiler.ir.result false
 
 #eval foo
+#eval foo'
 #eval test1
 #eval test2
 #eval test3
