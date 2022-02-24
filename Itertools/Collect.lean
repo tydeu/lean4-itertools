@@ -25,6 +25,8 @@ namespace Itertools
 @[inline] def list [ForIn Id ρ α] (iter : ρ) : List α :=
   revList iter |>.reverse
 
+instance [ForIn Id ρ α] : Coe ρ (List α) := ⟨list⟩
+
 /-- Produce an `Array` from a monadic iterable. -/
 @[inline] def arrayM [ForIn m ρ α] [Monad m] (iter : ρ) : m (Array α) := do
   let mut arr := #[]
@@ -35,3 +37,5 @@ namespace Itertools
 /-- Produce an `Array` from a pure iterable. -/
 @[inline] def array [ForIn Id ρ α] (iter : ρ) : Array α :=
   Id.run <| arrayM iter
+
+instance [ForIn Id ρ α] : Coe ρ (Array α) := ⟨array⟩
