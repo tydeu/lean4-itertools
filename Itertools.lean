@@ -5,6 +5,6 @@ Authors: Mac Malone
 -/
 import Itertools.Generate
 import Itertools.StaticRange
-import Itertools.Until
+import Itertools.Stop
 import Itertools.FilterMap
 import Itertools.Collect

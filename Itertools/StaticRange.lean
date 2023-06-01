@@ -12,10 +12,6 @@ def StaticRange {α : Type u} (start stop step : α) : Type := PUnit
 namespace StaticRange
 variable {α : Type u} {start stop step : α}
 
-@[inline] nonrec def start (self : StaticRange start stop step) := start
-@[inline] nonrec def stop (self : StaticRange start stop step) := stop
-@[inline] nonrec def step (self : StaticRange start stop step) := step
-
 variable [LE α] [(a b : α) → Decidable (a ≤ b)] [Add α]
 
 @[inline] protected partial def forIn [Monad m]

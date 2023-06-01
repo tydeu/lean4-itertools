@@ -12,7 +12,7 @@ set_option trace.compiler.ir.result true
 
 def foo :=
   generate 0 (· + 1)
-  |> until (· == 10)
+  |> stopIf (· == 10)
   |> filter (· % 2 == 0)
   |> map (· * 2)
   |> array
@@ -34,7 +34,7 @@ def test3 :=
 
 def test4 :=
   generate 0 (· + 1)
-  |> until (· == 10)
+  |> stopIf (· == 10)
   |> array
 
 def testInf :=

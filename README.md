@@ -5,7 +5,7 @@ This package provides an assortment of abstraction tools for performing iteratio
 ```lean
 def foo :=
   generate 0 (· + 1)
-  |> until (· == 10)
+  |> stopIf (· == 10)
   |> filter (· % 2 == 0)
   |> map (· * 2)
   |> array
@@ -13,18 +13,18 @@ def foo :=
 #eval foo -- #[0, 4, 8, 12, 16]
 ````
 
-It makes heavy use of type-level iterators and the `@[inline]` amd `@[specialize]` attributes to produce highly efficient code. This way, write iterators using the tools provided is just as efficient as writing the loop manually.
+It makes heavy use of type-level iterators and the `@[inline]` amd `@[specialize]` attributes to produce highly efficient code. This way, writing iterators using the tools provided is just as efficient as writing the loop manually.
 
 ```text
 def Itertools.MGenerate.forIn.loop._at.foo._spec_1 (x_1 : obj) (x_2 : obj) : obj :=
   let x_3 : obj := 10;
-  let x_4 : u8 := Nat.decEq x_1 x_3;
+  let x_4 : u8 := Nat.beq x_1 x_3;
   case x_4 : u8 of
   Bool.false →
     let x_5 : obj := 2;
     let x_6 : obj := Nat.mod x_1 x_5;
     let x_7 : obj := 0;
-    let x_8 : u8 := Nat.decEq x_6 x_7;
+    let x_8 : u8 := Nat.beq x_6 x_7;
     dec x_6;
     case x_8 : u8 of
     Bool.false →

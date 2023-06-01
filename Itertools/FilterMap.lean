@@ -18,12 +18,11 @@ namespace MFilter
 variable {m : Type → Type v} {α : Type} {predM : α → m Bool}
 
 @[inline] def iter (self : MFilter predM ρ) : ρ := self
-@[inline] nonrec def predM (self : MFilter predM ρ) := predM
 
 @[inline] protected def forIn [ForIn m ρ α] [Monad m]
 (self : MFilter predM ρ) (init : β) (f : α → β → m (ForInStep β)) : m β :=
   forIn self.iter init fun a b => do
-    if (← predM a) then f a b else ForInStep.yield b
+    if (← predM a) then f a b else return ForInStep.yield b
 
 instance [ForIn m ρ α] : ForIn m (MFilter predM ρ) α := ⟨MFilter.forIn⟩
 end MFilter
@@ -54,7 +53,6 @@ namespace MMap
 variable {m : Type u → Type v} {α : Type v} {α' : Type u} {fnM : α → m α'}
 
 @[inline] def iter (self : MMap fnM ρ) : ρ := self
-@[inline] nonrec def fnM (self : MMap fnM ρ) := fnM
 
 @[inline] protected def forIn [ForIn m ρ α] [Monad m]
 (self : MMap fnM ρ) (init : β) (f : α' → β → m (ForInStep β)) : m β :=
