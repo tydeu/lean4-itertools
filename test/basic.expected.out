@@ -1,0 +1,337 @@
+
+[result]
+def Itertools.MGenerate.forIn.loop._at.foo._spec_1 (x_1 : obj) (x_2 : obj) : obj :=
+  let x_3 : obj := 10;
+  let x_4 : u8 := Nat.beq x_1 x_3;
+  case x_4 : u8 of
+  Bool.false →
+    let x_5 : obj := 2;
+    let x_6 : obj := Nat.mod x_1 x_5;
+    let x_7 : obj := 0;
+    let x_8 : u8 := Nat.beq x_6 x_7;
+    dec x_6;
+    case x_8 : u8 of
+    Bool.false →
+      let x_9 : obj := 1;
+      let x_10 : obj := Nat.add x_1 x_9;
+      dec x_1;
+      let x_11 : obj := Itertools.MGenerate.forIn.loop._at.foo._spec_1 x_10 x_2;
+      ret x_11
+    Bool.true →
+      let x_12 : obj := Nat.mul x_1 x_5;
+      let x_13 : obj := Array.push ◾ x_2 x_12;
+      let x_14 : obj := 1;
+      let x_15 : obj := Nat.add x_1 x_14;
+      dec x_1;
+      let x_16 : obj := Itertools.MGenerate.forIn.loop._at.foo._spec_1 x_15 x_13;
+      ret x_16
+  Bool.true →
+    dec x_1;
+    ret x_2
+def foo._closed_1 : obj :=
+  let x_1 : obj := 0;
+  let x_2 : obj := Array.mkEmpty ◾ x_1;
+  ret x_2
+def foo : obj :=
+  let x_1 : obj := 0;
+  let x_2 : obj := foo._closed_1;
+  let x_3 : obj := Itertools.MGenerate.forIn.loop._at.foo._spec_1 x_1 x_2;
+  ret x_3
+[result]
+def Itertools.StaticRange.forIn.loop._at.foo'._spec_1 (x_1 : @& obj) (x_2 : @& obj) (x_3 : obj) (x_4 : obj) : obj :=
+  let x_5 : u8 := Nat.decLe x_1 x_3;
+  case x_5 : u8 of
+  Bool.false →
+    let x_6 : obj := 2;
+    let x_7 : obj := Nat.mod x_3 x_6;
+    let x_8 : obj := 0;
+    let x_9 : u8 := Nat.beq x_7 x_8;
+    dec x_7;
+    case x_9 : u8 of
+    Bool.false →
+      let x_10 : obj := Nat.add x_3 x_2;
+      dec x_3;
+      let x_11 : obj := Itertools.StaticRange.forIn.loop._at.foo'._spec_1 x_1 x_2 x_10 x_4;
+      ret x_11
+    Bool.true →
+      let x_12 : obj := Nat.mul x_3 x_6;
+      let x_13 : obj := Array.push ◾ x_4 x_12;
+      let x_14 : obj := Nat.add x_3 x_2;
+      dec x_3;
+      let x_15 : obj := Itertools.StaticRange.forIn.loop._at.foo'._spec_1 x_1 x_2 x_14 x_13;
+      ret x_15
+  Bool.true →
+    dec x_3;
+    ret x_4
+def foo' : obj :=
+  let x_1 : obj := 10;
+  let x_2 : obj := 1;
+  let x_3 : obj := 0;
+  let x_4 : obj := foo._closed_1;
+  let x_5 : obj := Itertools.StaticRange.forIn.loop._at.foo'._spec_1 x_1 x_2 x_3 x_4;
+  ret x_5
+def Itertools.StaticRange.forIn.loop._at.foo'._spec_1._boxed (x_1 : obj) (x_2 : obj) (x_3 : obj) (x_4 : obj) : obj :=
+  let x_5 : obj := Itertools.StaticRange.forIn.loop._at.foo'._spec_1 x_1 x_2 x_3 x_4;
+  dec x_2;
+  dec x_1;
+  ret x_5
+[result]
+def Std.Range.forIn.loop._at.test1._spec_1 (x_1 : obj) (x_2 : obj) (x_3 : @& obj) (x_4 : @& obj) (x_5 : obj) : obj :=
+  let x_6 : u8 := Nat.decLe x_3 x_2;
+  case x_6 : u8 of
+  Bool.false →
+    let x_7 : obj := 0;
+    let x_8 : u8 := Nat.decEq x_1 x_7;
+    case x_8 : u8 of
+    Bool.false →
+      let x_9 : obj := 1;
+      let x_10 : obj := Nat.sub x_1 x_9;
+      dec x_1;
+      let x_11 : obj := 2;
+      let x_12 : obj := Nat.mod x_2 x_11;
+      let x_13 : u8 := Nat.beq x_12 x_7;
+      dec x_12;
+      case x_13 : u8 of
+      Bool.false →
+        let x_14 : obj := Nat.add x_2 x_4;
+        dec x_2;
+        let x_15 : obj := Std.Range.forIn.loop._at.test1._spec_1 x_10 x_14 x_3 x_4 x_5;
+        ret x_15
+      Bool.true →
+        inc x_2;
+        let x_16 : obj := Array.push ◾ x_5 x_2;
+        let x_17 : obj := Nat.add x_2 x_4;
+        dec x_2;
+        let x_18 : obj := Std.Range.forIn.loop._at.test1._spec_1 x_10 x_17 x_3 x_4 x_16;
+        ret x_18
+    Bool.true →
+      dec x_2;
+      dec x_1;
+      ret x_5
+  Bool.true →
+    dec x_2;
+    dec x_1;
+    ret x_5
+def test1 : obj :=
+  let x_1 : obj := 5;
+  let x_2 : obj := 0;
+  let x_3 : obj := 1;
+  let x_4 : obj := foo._closed_1;
+  let x_5 : obj := Std.Range.forIn.loop._at.test1._spec_1 x_1 x_2 x_1 x_3 x_4;
+  ret x_5
+def Std.Range.forIn.loop._at.test1._spec_1._boxed (x_1 : obj) (x_2 : obj) (x_3 : obj) (x_4 : obj) (x_5 : obj) : obj :=
+  let x_6 : obj := Std.Range.forIn.loop._at.test1._spec_1 x_1 x_2 x_3 x_4 x_5;
+  dec x_4;
+  dec x_3;
+  ret x_6
+[result]
+def Std.Range.forIn.loop._at.test2._spec_1 (x_1 : obj) (x_2 : obj) (x_3 : @& obj) (x_4 : @& obj) (x_5 : obj) : obj :=
+  let x_6 : u8 := Nat.decLe x_3 x_2;
+  case x_6 : u8 of
+  Bool.false →
+    let x_7 : obj := 0;
+    let x_8 : u8 := Nat.decEq x_1 x_7;
+    case x_8 : u8 of
+    Bool.false →
+      let x_9 : obj := 1;
+      let x_10 : obj := Nat.sub x_1 x_9;
+      dec x_1;
+      let x_11 : u8 := isShared x_5;
+      case x_11 : u8 of
+      Bool.false →
+        let x_12 : obj := proj[0] x_5;
+        let x_13 : obj := proj[1] x_5;
+        inc x_2;
+        inc x_12;
+        set x_5[1] := x_2;
+        let x_14 : obj := 2;
+        let x_15 : obj := Nat.mod x_12 x_14;
+        let x_16 : u8 := Nat.beq x_15 x_7;
+        dec x_15;
+        case x_16 : u8 of
+        Bool.false →
+          dec x_5;
+          let x_17 : obj := Nat.add x_12 x_9;
+          dec x_12;
+          let x_18 : obj := ctor_0[Prod.mk] x_17 x_13;
+          let x_19 : obj := Nat.add x_2 x_4;
+          dec x_2;
+          let x_20 : obj := Std.Range.forIn.loop._at.test2._spec_1 x_10 x_19 x_3 x_4 x_18;
+          ret x_20
+        Bool.true →
+          let x_21 : obj := Array.push ◾ x_13 x_5;
+          let x_22 : obj := Nat.add x_12 x_9;
+          dec x_12;
+          let x_23 : obj := ctor_0[Prod.mk] x_22 x_21;
+          let x_24 : obj := Nat.add x_2 x_4;
+          dec x_2;
+          let x_25 : obj := Std.Range.forIn.loop._at.test2._spec_1 x_10 x_24 x_3 x_4 x_23;
+          ret x_25
+      Bool.true →
+        let x_26 : obj := proj[0] x_5;
+        let x_27 : obj := proj[1] x_5;
+        inc x_27;
+        inc x_26;
+        dec x_5;
+        inc x_2;
+        inc x_26;
+        let x_28 : obj := ctor_0[Prod.mk] x_26 x_2;
+        let x_29 : obj := 2;
+        let x_30 : obj := Nat.mod x_26 x_29;
+        let x_31 : u8 := Nat.beq x_30 x_7;
+        dec x_30;
+        case x_31 : u8 of
+        Bool.false →
+          dec x_28;
+          let x_32 : obj := Nat.add x_26 x_9;
+          dec x_26;
+          let x_33 : obj := ctor_0[Prod.mk] x_32 x_27;
+          let x_34 : obj := Nat.add x_2 x_4;
+          dec x_2;
+          let x_35 : obj := Std.Range.forIn.loop._at.test2._spec_1 x_10 x_34 x_3 x_4 x_33;
+          ret x_35
+        Bool.true →
+          let x_36 : obj := Array.push ◾ x_27 x_28;
+          let x_37 : obj := Nat.add x_26 x_9;
+          dec x_26;
+          let x_38 : obj := ctor_0[Prod.mk] x_37 x_36;
+          let x_39 : obj := Nat.add x_2 x_4;
+          dec x_2;
+          let x_40 : obj := Std.Range.forIn.loop._at.test2._spec_1 x_10 x_39 x_3 x_4 x_38;
+          ret x_40
+    Bool.true →
+      dec x_2;
+      dec x_1;
+      ret x_5
+  Bool.true →
+    dec x_2;
+    dec x_1;
+    ret x_5
+def test2._closed_1 : obj :=
+  let x_1 : obj := 0;
+  let x_2 : obj := foo._closed_1;
+  let x_3 : obj := ctor_0[Prod.mk] x_1 x_2;
+  ret x_3
+def test2 : obj :=
+  let x_1 : obj := 5;
+  let x_2 : obj := 0;
+  let x_3 : obj := 1;
+  let x_4 : obj := test2._closed_1;
+  let x_5 : obj := Std.Range.forIn.loop._at.test2._spec_1 x_1 x_2 x_1 x_3 x_4;
+  let x_6 : obj := proj[1] x_5;
+  inc x_6;
+  dec x_5;
+  ret x_6
+def Std.Range.forIn.loop._at.test2._spec_1._boxed (x_1 : obj) (x_2 : obj) (x_3 : obj) (x_4 : obj) (x_5 : obj) : obj :=
+  let x_6 : obj := Std.Range.forIn.loop._at.test2._spec_1 x_1 x_2 x_3 x_4 x_5;
+  dec x_4;
+  dec x_3;
+  ret x_6
+[result]
+def Std.Range.forIn.loop._at.test3._spec_1 (x_1 : obj) (x_2 : obj) (x_3 : @& obj) (x_4 : @& obj) (x_5 : obj) : obj :=
+  let x_6 : u8 := Nat.decLe x_3 x_2;
+  case x_6 : u8 of
+  Bool.false →
+    let x_7 : obj := 0;
+    let x_8 : u8 := Nat.decEq x_1 x_7;
+    case x_8 : u8 of
+    Bool.false →
+      let x_9 : obj := 1;
+      let x_10 : obj := Nat.sub x_1 x_9;
+      dec x_1;
+      let x_11 : u8 := isShared x_5;
+      case x_11 : u8 of
+      Bool.false →
+        let x_12 : obj := proj[0] x_5;
+        let x_13 : obj := proj[1] x_5;
+        inc x_2;
+        inc x_12;
+        set x_5[1] := x_2;
+        let x_14 : obj := Array.push ◾ x_13 x_5;
+        let x_15 : obj := Nat.add x_12 x_9;
+        dec x_12;
+        let x_16 : obj := ctor_0[Prod.mk] x_15 x_14;
+        let x_17 : obj := Nat.add x_2 x_4;
+        dec x_2;
+        let x_18 : obj := Std.Range.forIn.loop._at.test3._spec_1 x_10 x_17 x_3 x_4 x_16;
+        ret x_18
+      Bool.true →
+        let x_19 : obj := proj[0] x_5;
+        let x_20 : obj := proj[1] x_5;
+        inc x_20;
+        inc x_19;
+        dec x_5;
+        inc x_2;
+        inc x_19;
+        let x_21 : obj := ctor_0[Prod.mk] x_19 x_2;
+        let x_22 : obj := Array.push ◾ x_20 x_21;
+        let x_23 : obj := Nat.add x_19 x_9;
+        dec x_19;
+        let x_24 : obj := ctor_0[Prod.mk] x_23 x_22;
+        let x_25 : obj := Nat.add x_2 x_4;
+        dec x_2;
+        let x_26 : obj := Std.Range.forIn.loop._at.test3._spec_1 x_10 x_25 x_3 x_4 x_24;
+        ret x_26
+    Bool.true →
+      dec x_2;
+      dec x_1;
+      ret x_5
+  Bool.true →
+    dec x_2;
+    dec x_1;
+    ret x_5
+def test3 : obj :=
+  let x_1 : obj := 5;
+  let x_2 : obj := 0;
+  let x_3 : obj := 1;
+  let x_4 : obj := test2._closed_1;
+  let x_5 : obj := Std.Range.forIn.loop._at.test3._spec_1 x_1 x_2 x_1 x_3 x_4;
+  let x_6 : obj := proj[1] x_5;
+  inc x_6;
+  dec x_5;
+  ret x_6
+def Std.Range.forIn.loop._at.test3._spec_1._boxed (x_1 : obj) (x_2 : obj) (x_3 : obj) (x_4 : obj) (x_5 : obj) : obj :=
+  let x_6 : obj := Std.Range.forIn.loop._at.test3._spec_1 x_1 x_2 x_3 x_4 x_5;
+  dec x_4;
+  dec x_3;
+  ret x_6
+[result]
+def Itertools.MGenerate.forIn.loop._at.test4._spec_1 (x_1 : obj) (x_2 : obj) : obj :=
+  let x_3 : obj := 10;
+  let x_4 : u8 := Nat.beq x_1 x_3;
+  case x_4 : u8 of
+  Bool.false →
+    inc x_1;
+    let x_5 : obj := Array.push ◾ x_2 x_1;
+    let x_6 : obj := 1;
+    let x_7 : obj := Nat.add x_1 x_6;
+    dec x_1;
+    let x_8 : obj := Itertools.MGenerate.forIn.loop._at.test4._spec_1 x_7 x_5;
+    ret x_8
+  Bool.true →
+    dec x_1;
+    ret x_2
+def test4 : obj :=
+  let x_1 : obj := 0;
+  let x_2 : obj := foo._closed_1;
+  let x_3 : obj := Itertools.MGenerate.forIn.loop._at.test4._spec_1 x_1 x_2;
+  ret x_3
+[result]
+def Itertools.MGenerate.forIn.loop._at.testInf._spec_1 (x_1 : obj) (x_2 : obj) : obj :=
+  inc x_1;
+  let x_3 : obj := Array.push ◾ x_2 x_1;
+  let x_4 : obj := 1;
+  let x_5 : obj := Nat.add x_1 x_4;
+  dec x_1;
+  let x_6 : obj := Itertools.MGenerate.forIn.loop._at.testInf._spec_1 x_5 x_3;
+  ret x_6
+def testInf : obj :=
+  let x_1 : obj := 0;
+  let x_2 : obj := foo._closed_1;
+  let x_3 : obj := Itertools.MGenerate.forIn.loop._at.testInf._spec_1 x_1 x_2;
+  ret x_3#[0, 4, 8, 12, 16]
+#[0, 4, 8, 12, 16]
+#[0, 2, 4]
+#[(0, 0), (2, 2), (4, 4)]
+#[(0, 0), (1, 1), (2, 2), (3, 3), (4, 4)]
+#[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
