@@ -31,8 +31,7 @@ end MFilter
 abbrev Filter {α : Type} (pred : α → Bool) (ρ : Type u) :=
   MFilter (m := Id) pred ρ
 
-@[inline] nonrec def Filter.pred {m : Type → Type v} {pred : α → Bool}
-  (self : Filter pred ρ) := pred
+@[inline] nonrec def Filter.pred {pred : α → Bool} (_ : Filter pred ρ) := pred
 
 /-- Filter values from `iter` that do not satisfy `predM`. -/
 @[inline] def filterM {m : Type → Type u} (predM : α → m Bool) (iter : ρ) :
@@ -65,7 +64,7 @@ end MMap
 abbrev Map {α : Type u} {α' : Type v} (fn : α → α') (ρ : Type w) :=
   MMap (m := Id) fn ρ
 
-@[inline] nonrec def Map.fn {fn : α → α'} (self : Map fn ρ) := fn
+@[inline] nonrec def Map.fn {fn : α → α'} (_ : Map fn ρ) := fn
 
 /-- Apply `fnM` to each value from `iter` to produce a new iterable. -/
 @[inline] def mapM {m : Type → Type u} (fnM : α → m α') (iter : ρ) :
